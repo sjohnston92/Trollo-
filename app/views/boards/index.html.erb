@@ -1,2 +1,11 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+<h1>Welcome to Trollo</h1>
+<h3>All your Boards</h3>
+<% @boards.each do |board| %>
+  <h1><%=link_to board.name,board_lists_path(board)%></h1>
+  <%= link_to "Show", board_path(board) %>
+  <%= link_to "Edit", edit_board_path(board) %>
+  <%= link_to "Delete", board_path(board), method: :delete %>
+  <hr>
+<% end %>
+<br />
+<%= link_to "Create New Board", new_board_path %>
