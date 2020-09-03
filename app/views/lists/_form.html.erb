@@ -1,13 +1,14 @@
+
+<h1><%= @list.id ? 'Edit List' : 'Create List' %></h1>
+
+
 <%= form_with(model:[@board, @list], local: true, class: "form") do |f| %>
-  <div class="field">
+
     <%= f.label :name %>
     <%= f.text_field :name, required: true, placeholder: "List name" %>
-  </div>
-    <div class="field">
     <%= f.label :notes %>
     <%= f.text_field :notes, required: true, placeholder: "Notes" %>
-  </div>
-  <%= f.submit nil, class: "green" %>
+    <%= f.submit nil, class: "green" %>
 <% end %>
 
 

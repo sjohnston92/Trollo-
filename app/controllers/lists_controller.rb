@@ -25,12 +25,12 @@ class ListsController < ApplicationController
 
 
   def edit
-
+    render partial: "lists/form"
   end
 
   def update
     if @list.update(list_params)
-      redirect_to [@board, @list]
+      redirect_to [@board]
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
-    # @list = current_user
+    @list = current_user
   end
 
   def list_params

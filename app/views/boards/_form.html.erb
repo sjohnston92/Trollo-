@@ -1,3 +1,5 @@
+
+<div class="container">
 <%= form_with(model: @board, local: true, class: "form") do |f| %>
   <div class="field">
     <%= f.label :name %>
@@ -5,3 +7,4 @@
   </div>
   <%= f.submit nil, class: "green" %>
 <% end %>
+</div>
