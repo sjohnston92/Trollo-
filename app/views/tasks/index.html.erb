@@ -1,2 +1,12 @@
 <h1>Your Task are Here</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<% @tasks.each do |task| %>
+  <h3><%=task.name%></h3>
+  <br>
+  <%= link_to "Edit", edit_list_task_path(@list,task), class:"btn btn-outline-warning" %>
+  <%= link_to "Delete", list_task_path(@list,task), method: :delete, class:"btn btn-outline-danger" %>
+  <hr>
+<% end %>
+<br />
+<div class="create">
+<%= link_to "Create New Task", new_list_task_path, class:"btn btn-success" %>
+</div>

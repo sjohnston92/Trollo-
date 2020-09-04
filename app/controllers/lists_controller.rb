@@ -1,13 +1,14 @@
 class ListsController < ApplicationController
-  before_action :set_board
+  # before_action :set_board, only: [:index]
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
+    @board = current_user.boards.find(params[:board_id])
     @lists = @board.lists
   end
 
   def show
-    # @list = @board.lists.find(@board_id)
+
   end
 
   def new
@@ -17,7 +18,7 @@ class ListsController < ApplicationController
   def create
     @list = @board.lists.new(list_params)
     if @list.save
-      redirect_to [@board] #should be right?
+      redirect_to [@board]
     else
       render :new
     end
@@ -44,17 +45,15 @@ class ListsController < ApplicationController
 
   private
   
-  def set_board
-    @board = current_user.boards.find(params[:board_id])
-  end
+
 
   def set_list
     @list = List.find(params[:id])
-    @list = current_user
   end
 
   def list_params
-    params.require(:list).permit(:name, :board_id)
+    params.require(:list).permit(:name)
   end
+
 
 end

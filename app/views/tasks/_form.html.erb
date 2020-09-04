@@ -1,0 +1,9 @@
+<h1><%= @task.id ? 'Edit List' : 'Create Task' %></h1>
+
+
+<%= form_with(model:[@list, @task], local: true, class: "form") do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "Task name" %>
+    <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>

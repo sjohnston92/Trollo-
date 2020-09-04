@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  belongs_to :list dependent: :destroy
+  belongs_to :list
 end
